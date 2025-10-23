@@ -34,16 +34,17 @@ main{
 }
 #search{
     width: 50%;
-    background-color: #6e5216;
+    /* background-color: #6e5216; */
     height: 10%;
-    border-radius: 20px;
+    
     align-items: center;
     display: flex;
-    justify-content: space-around;
+    /* gap: 10px; */
+    /* justify-content: space-around; */
     
 }
 #inptSearch,#btnSearch{
-    border-radius: 25px;
+    
     border: none;
     height: 50%;
 }
@@ -55,12 +56,14 @@ main{
      display: flex;
     align-items: center;
     padding: 10px;
+    background-color: rgb(205, 198, 198);
     
 }
 #location{
     width: 20%;
     height: 10%;
-    background-color: rgb(145, 106, 9);
+    margin-bottom: 50px;
+    /* background-color: rgb(145, 106, 9); */
     display: flex;
     border-radius: 20px;
     justify-content: center;
@@ -72,18 +75,23 @@ main{
      font-size: 1.7rem;
      padding: 10px;
     background-color: #6e5216;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 #temp{
     border-radius: 20px;
-    background-color: #872d2d;
+    /* background-color: #872d2d; */
     width: 80%;
     justify-content: center;
-    gap: 200px;
+    gap: 10px;
     align-items: center;
+    flex-direction: column;
     display: flex;
-    height: 30%;
+    height: 50%;
+    font-size: 4rem;
     
+}
+#loc1{  
+font-size: 2rem;
 }
 #air{
     border-radius: 20px;
@@ -93,17 +101,17 @@ main{
     justify-content: center;
     gap: 100px;
     align-items: center;
-    background-color: rgb(109, 53, 14);
+    /* background-color: rgb(109, 53, 14); */
 }
 #extraInfo{
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 
-    height: 30%;
+    height: 40%;
     width: 80%;
-    background-color: rgb(113, 77, 19);
+    background-color: rgb(122, 92, 21);
 
 }
