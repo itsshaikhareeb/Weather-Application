@@ -3,6 +3,7 @@ const inpt = document.getElementById("inptSearch")
 
 const info = document.getElementById("extraInfo")
 let res= ""
+let API_KEY = `a8e34201d7793aff0619f1563c184630`
 // let hold = ""
 
 
@@ -14,8 +15,8 @@ let res= ""
         emptyInpt()
         return;
     }
-    //  let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}&units=metric`)
-     let result = await fetch(`/.netlify/functions/getWeather?q=${city_name}`)
+     let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}&units=metric`)
+    //  let result = await fetch(`/.netlify/functions/getWeather?q=${city_name}`)
      res = await result.json()
     // console.log(res.message);
     console.log(`this is ${res}`);
@@ -54,6 +55,21 @@ function emptyInpt(){
     alert("Please enter valid city name.")
 }
 
+let loc =""
+document.getElementById("useLocation").addEventListener("click",()=>{
+    navigator.geolocation.getCurrentPosition((position)=>{
+        let lat = position.coords.latitude
+        let lon = position.coords.longitude
+        console.log(lat,lon);
+        async function locationFetch() {
+            let fetchLoc = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+             loc = await fetchLoc.json()
+            displayWeather(loc)
+        }
+        locationFetch(loc)
+        
+    })
+})
 // arr = [1,2,3]
 // one,two,three = [arr]
 // console.log(one,two,three);
