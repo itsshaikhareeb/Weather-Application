@@ -1,6 +1,6 @@
 const btn = document.getElementById("btnSearch")
 const inpt = document.getElementById("inptSearch")
-const API_KEY = 'a8e34201d7793aff0619f1563c184630'
+
 const info = document.getElementById("extraInfo")
 let res= ""
 // let hold = ""
@@ -14,11 +14,16 @@ let res= ""
         emptyInpt()
         return;
     }
-     let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}&units=metric`)
+    //  let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}&units=metric`)
+     let result = await fetch(`/.netlify/functions/getWeather?q=${city_name}`)
      res = await result.json()
     // console.log(res.message);
     console.log(`this is ${res}`);
-    if( res == "" || res.cod == "404" || res.cod == "400"){
+   displayWeather(res)
+}
+function displayWeather(res)
+{
+    if (res == "" || res.cod == "404" || res.cod == "400") {
         emptyInpt()
         return;
     }
@@ -30,10 +35,9 @@ let res= ""
                 <div id="air" >
                     <p>Wind: <span>${res.wind.speed}km/h</span></p>
                     <p>Air Pressure <span>${res.main.pressure}</span></p>
-                    <p>Humidity <span>${res.main.humidity}</span></p>
+                    <p>Humidity <span>${res.main.humidity}%</span></p>
                 </div>`
 }
-
 btn.addEventListener('click', ()=>{
     fetchData(inpt.value)
 })
@@ -50,3 +54,6 @@ function emptyInpt(){
     alert("Please enter valid city name.")
 }
 
+// arr = [1,2,3]
+// one,two,three = [arr]
+// console.log(one,two,three);

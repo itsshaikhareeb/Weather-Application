@@ -71,6 +71,7 @@ main{
     align-items: center;
 }
 #useLocation{
+    cursor: pointer;
      width: 80%;
      height: 80%;
      font-size: 1.7rem;
