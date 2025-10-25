@@ -4,11 +4,6 @@ const inpt = document.getElementById("inptSearch")
 const info = document.getElementById("extraInfo")
 let res= ""
 let API_KEY = `a8e34201d7793aff0619f1563c184630`
-// let hold = ""
-
-
-
-
 
  async function fetchData(city_name) {
     if(city_name == ""){
@@ -70,6 +65,3 @@ document.getElementById("useLocation").addEventListener("click",()=>{
         
     })
 })
-// arr = [1,2,3]
-// one,two,three = [arr]
-// console.log(one,two,three);
